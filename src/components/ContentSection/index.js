@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextElement from '../TextElement';
 import Gallery from '../Gallery';
 
-import { Container } from './style';
+import { Container, Wrapper } from './style';
 
 class ContentSection extends Component {
   state = {
@@ -20,17 +20,6 @@ class ContentSection extends Component {
   }
 
   handleScroll = () => {
-    // if (this.state.lastScrollPos > window.scrollY) {
-    //   this.setState({
-    //     direction: 'top',
-    //     lastScrollPos: window.scrollY
-    //   });
-    // } else if (this.state.lastScrollPos < window.scrollY) {
-    //   this.setState({
-    //     direction: 'bottom',
-    //     lastScrollPos: window.scrollY
-    //   });
-    // }
     if (this.state.lastScrollPos > window.scrollY) {
       this.setState({
         direction: 'top',
@@ -48,7 +37,10 @@ class ContentSection extends Component {
 
   render() {
     return (
-      <div style={{ transform: `translateY(-${this.state.bho}%)` }}>
+      <Wrapper
+        position={this.state.lastScrollPos}
+        style={{ transform: `translateY(-${this.state.bho}%)` }}
+      >
         <Container
           direction={this.state.direction}
           position={this.state.lastScrollPos}
@@ -56,7 +48,7 @@ class ContentSection extends Component {
           <TextElement />
           <Gallery />
         </Container>
-      </div>
+      </Wrapper>
     );
   }
 }

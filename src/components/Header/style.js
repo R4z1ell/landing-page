@@ -10,9 +10,10 @@ const Container = styled.header`
 const HeaderWrapper = styled.div`
   max-width: 114.6rem;
   margin: 0 auto;
-  height: 6rem;
+  height: ${props => (props.value > 335 ? '0' : '6rem')};
   display: flex;
   align-items: center;
+  transition: all 0.3s;
 `;
 
 const Logo = styled.div`
@@ -20,6 +21,9 @@ const Logo = styled.div`
   font-size: 2rem;
   color: #000;
   position: absolute;
+  opacity: ${props => (props.value > 335 ? '0' : '1')};
+  transition: all 0.3s;
+  cursor: default;
 `;
 
 const Nav = styled.nav`
@@ -28,13 +32,15 @@ const Nav = styled.nav`
   text-transform: uppercase;
   text-align: center;
   width: 100%;
+  opacity: ${props => (props.value > 335 ? '0' : '1')};
+  transition: all 0.3s;
 `;
 
 const Link = styled.a`
   text-decoration: none;
   margin-right: 3rem;
   color: #9b9b9b;
-  cursor: pointer;
+  cursor: default;
 `;
 
 export { Container, HeaderWrapper, Logo, Nav, Link };
