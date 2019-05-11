@@ -12,6 +12,11 @@ const Wrapper = styled.div`
   @media ${below.desktopM} {
     transform: scale(0.77) translateX(-12rem);
   }
+
+  @media ${below.desktopS} {
+    transform: scale(1) translateX(0);
+    margin-left: 1.8rem;
+  }
 `;
 
 const Block = styled.div`

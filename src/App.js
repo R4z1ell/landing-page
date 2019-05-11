@@ -20,7 +20,12 @@ const App = () => {
       <GlobalStyle />
       <Overlay visible={overlayStatus} func={toggleOverlay} />
       <Header />
-      <div style={{ paddingTop: '6rem', height: '100vh' }}>
+      <div
+        style={{
+          paddingTop: '6rem',
+          height: window.innerWidth <= 930 ? '100%' : '100vh'
+        }}
+      >
         <Hero />
         <ContentSection />
         <OverlayContext.Provider

@@ -46,6 +46,10 @@ const Link = styled.a`
   margin-right: 3rem;
   color: #9b9b9b;
   cursor: default;
+
+  &:nth-child(1) {
+    margin-left: 3.5rem;
+  }
 `;
 
 export { Container, HeaderWrapper, Logo, Nav, Link };

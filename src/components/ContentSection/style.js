@@ -16,6 +16,13 @@ const Container = styled.div`
     width: 100%;
     padding: 4.4rem 6.8rem;
   }
+
+  @media ${below.desktopS} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4.4rem 4.4rem 0 4.4rem;
+  }
 `;
 
 const Wrapper = styled.div`

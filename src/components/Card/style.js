@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { below } from '../../shared/MediaQueries';
 
 const CardWrapper = styled.div`
   position: relative;
@@ -10,6 +11,16 @@ const CardWrapper = styled.div`
   padding: 6rem 2.8rem;
   font-family: 'Montserrat';
   overflow: hidden;
+
+  @media ${below.desktopS} {
+    margin-bottom: 3rem;
+    width: 56.8rem;
+    height: 32.4rem;
+
+    &:nth-child(3) {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const Number = styled.div`
@@ -19,6 +30,10 @@ const Number = styled.div`
   font-size: 21.6rem;
   font-weight: 700;
   color: #ecda1f;
+
+  @media ${below.desktopS} {
+    top: -34.5%;
+  }
 `;
 
 const Text = styled.p`
@@ -36,6 +51,10 @@ const Title = styled.h2`
   line-height: 3.2rem;
   color: #000;
   margin-top: ${props => (props.value ? '' : '9.5rem')};
+
+  @media ${below.desktopS} {
+    font-size: 2.3rem;
+  }
 `;
 
 const Button = styled.button`

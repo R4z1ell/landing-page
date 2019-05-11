@@ -11,6 +11,10 @@ const Wrapper = styled.div`
   @media ${below.desktopM} {
     width: 43.5rem;
   }
+
+  @media ${below.desktopS} {
+    width: 56.7rem;
+  }
 `;
 
 const UpperText = styled.p`

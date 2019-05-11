@@ -25,8 +25,7 @@ class ContentSection extends Component {
       this.setState({
         percentageValue: 26.8
       });
-    }
-    if (this.state.lastScrollPos > window.pageYOffset) {
+    } else if (this.state.lastScrollPos > window.pageYOffset) {
       this.setState(prevState => ({
         direction: 'top',
         lastScrollPos: window.pageYOffset,
@@ -45,20 +44,16 @@ class ContentSection extends Component {
   };
 
   render() {
+    let checkPos =
+      this.state.lastScrollPos < 5 && this.state.percentageValue > 26.8
+        ? 'translateY(-26.8%)'
+        : `translateY(-${this.state.percentageValue}%)`;
+
     return (
       <Wrapper
         position={this.state.lastScrollPos}
-        // style={{
-        //   transform:
-        //     window.innerWidth > 930
-        //       ? `translateY(-${this.state.percentageValue}%)`
-        //       : 'translateY(-26.8%)'
-        // }}
         style={{
-          transform:
-            this.state.lastScrollPos < 5 && this.state.percentageValue > 26.8
-              ? 'translateY(-26.8%)'
-              : `translateY(-${this.state.percentageValue}%)`
+          transform: window.innerWidth > 930 ? checkPos : 'translateY(-26.8%)'
         }}
       >
         <Container>

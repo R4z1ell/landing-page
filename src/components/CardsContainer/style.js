@@ -11,6 +11,11 @@ const Container = styled.div`
     width: 100%;
     margin: 0;
   }
+
+  @media ${below.desktopS} {
+    transform: translateY(-7%);
+    height: fit-content;
+  }
 `;
 
 const CardsWrapper = styled.div`
@@ -25,6 +30,13 @@ const CardsWrapper = styled.div`
   @media ${below.desktopL} {
     right: 5.7rem;
     top: -10rem;
+  }
+
+  @media ${below.desktopS} {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
