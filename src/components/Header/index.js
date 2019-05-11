@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import throttle from 'lodash.throttle';
 
 import { Container, HeaderWrapper, Logo, Nav, Link } from './style';
 
@@ -6,8 +7,7 @@ const Header = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(window.pageYOffset);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
+    window.addEventListener('scroll', throttle(handleScroll), 200);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };

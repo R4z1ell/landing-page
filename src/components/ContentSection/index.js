@@ -9,7 +9,7 @@ class ContentSection extends Component {
   state = {
     direction: '',
     lastScrollPos: 0,
-    bho: 26.8
+    percentageValue: 26.8
   };
 
   componentDidMount() {
@@ -21,17 +21,25 @@ class ContentSection extends Component {
   }
 
   handleScroll = () => {
+    if (window.pageYOffset === 0) {
+      this.setState({
+        percentageValue: 26.8
+      });
+    }
     if (this.state.lastScrollPos > window.pageYOffset) {
       this.setState(prevState => ({
         direction: 'top',
         lastScrollPos: window.pageYOffset,
-        bho: prevState.bho - 0.2
+        percentageValue:
+          prevState.percentageValue < 26.8
+            ? 26.8
+            : prevState.percentageValue - 0.2
       }));
     } else if (this.state.lastScrollPos < window.pageYOffset) {
       this.setState(prevState => ({
         direction: 'bottom',
         lastScrollPos: window.pageYOffset,
-        bho: prevState.bho + 0.1
+        percentageValue: prevState.percentageValue + 0.1
       }));
     }
   };
@@ -40,11 +48,17 @@ class ContentSection extends Component {
     return (
       <Wrapper
         position={this.state.lastScrollPos}
+        // style={{
+        //   transform:
+        //     window.innerWidth > 930
+        //       ? `translateY(-${this.state.percentageValue}%)`
+        //       : 'translateY(-26.8%)'
+        // }}
         style={{
           transform:
-            window.innerWidth > 930
-              ? `translateY(-${this.state.bho}%)`
-              : 'translateY(-26.8%)'
+            this.state.lastScrollPos < 5 && this.state.percentageValue > 26.8
+              ? 'translateY(-26.8%)'
+              : `translateY(-${this.state.percentageValue}%)`
         }}
       >
         <Container>
