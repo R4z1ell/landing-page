@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { below } from '../../shared/MediaQueries';
 
 const Container = styled.header`
   background-color: #fff;
@@ -14,6 +15,10 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   transition: all 0.3s;
+
+  @media ${below.desktopB} {
+    margin: 0 3%;
+  }
 `;
 
 const Logo = styled.div`

@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Card';
-import { cardData } from '../../utils/data';
+import { cardsData } from '../../utils/data';
 
 import { CardsWrapper, Container } from './style';
 
@@ -8,8 +8,8 @@ const CardsContainer = () => {
   return (
     <Container>
       <CardsWrapper>
-        {cardData.map((card, i) => (
-          <Card key={card.number} {...cardData[i]} />
+        {cardsData.map((card, i) => (
+          <Card key={card.number} {...cardsData[i]} />
         ))}
       </CardsWrapper>
     </Container>

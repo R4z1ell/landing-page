@@ -1,4 +1,4 @@
-export const cardData = [
+export const cardsData = [
   {
     number: '01',
     icon: true,

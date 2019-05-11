@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import throttle from 'lodash.throttle';
 import TextElement from '../TextElement';
 import Gallery from '../Gallery';
 
@@ -12,7 +13,7 @@ class ContentSection extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', throttle(this.handleScroll), 200);
   }
 
   componentWillUnmount() {
@@ -20,18 +21,18 @@ class ContentSection extends Component {
   }
 
   handleScroll = () => {
-    if (this.state.lastScrollPos > window.scrollY) {
-      this.setState({
+    if (this.state.lastScrollPos > window.pageYOffset) {
+      this.setState(prevState => ({
         direction: 'top',
-        lastScrollPos: window.scrollY,
-        bho: this.state.bho - 0.2
-      });
-    } else if (this.state.lastScrollPos < window.scrollY) {
-      this.setState({
+        lastScrollPos: window.pageYOffset,
+        bho: prevState.bho - 0.2
+      }));
+    } else if (this.state.lastScrollPos < window.pageYOffset) {
+      this.setState(prevState => ({
         direction: 'bottom',
-        lastScrollPos: window.scrollY,
-        bho: this.state.bho + 0.1
-      });
+        lastScrollPos: window.pageYOffset,
+        bho: prevState.bho + 0.1
+      }));
     }
   };
 
@@ -39,12 +40,14 @@ class ContentSection extends Component {
     return (
       <Wrapper
         position={this.state.lastScrollPos}
-        style={{ transform: `translateY(-${this.state.bho}%)` }}
+        style={{
+          transform:
+            window.innerWidth > 930
+              ? `translateY(-${this.state.bho}%)`
+              : 'translateY(-26.8%)'
+        }}
       >
-        <Container
-          direction={this.state.direction}
-          position={this.state.lastScrollPos}
-        >
+        <Container>
           <TextElement />
           <Gallery />
         </Container>

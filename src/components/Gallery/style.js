@@ -1,8 +1,17 @@
 import styled from 'styled-components';
+import { below } from '../../shared/MediaQueries';
 
 const Wrapper = styled.div`
   display: flex;
   margin-top: 7.1rem;
+
+  @media ${below.desktopL} {
+    transform: scale(0.9) translateX(-5rem);
+  }
+
+  @media ${below.desktopM} {
+    transform: scale(0.77) translateX(-12rem);
+  }
 `;
 
 const Block = styled.div`

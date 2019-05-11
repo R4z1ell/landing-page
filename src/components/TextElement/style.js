@@ -1,7 +1,16 @@
 import styled from 'styled-components';
+import { below } from '../../shared/MediaQueries';
 
 const Wrapper = styled.div`
   width: 56.7rem;
+
+  @media ${below.desktopL} {
+    width: 51.5rem;
+  }
+
+  @media ${below.desktopM} {
+    width: 43.5rem;
+  }
 `;
 
 const UpperText = styled.p`
@@ -18,6 +27,14 @@ const Title = styled.h1`
   line-height: 4.4rem;
   margin-bottom: 2.5rem;
   color: #000;
+
+  @media ${below.desktopL} {
+    font-size: 3.4rem;
+  }
+
+  @media ${below.desktopM} {
+    font-size: 2.9rem;
+  }
 `;
 
 const Description = styled.p`

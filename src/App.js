@@ -8,7 +8,7 @@ import ContentSection from './components/ContentSection';
 import CardsContainer from './components/CardsContainer';
 import Overlay from './components/Overlay';
 
-function App() {
+const App = () => {
   const [overlayStatus, setOverlayStatus] = useState(false);
 
   const toggleOverlay = () => {
@@ -34,6 +34,6 @@ function App() {
       </div>
     </React.Fragment>
   );
-}
+};
 
 export default App;
