@@ -7,7 +7,6 @@ const CardStyle = styled.div`
     props.value <= 1100
       ? 'calc((100vw - 80%) / 2)'
       : 'calc((100vw - 95.7rem) / 2)'};
-  /* top: calc((100vh - 65.8rem) / 2); */
   top: ${props =>
     props.value <= 550
       ? 'calc((100vh - 52.8rem) / 2)'
