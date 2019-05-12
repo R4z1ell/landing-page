@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import throttle from 'lodash.throttle';
+import { textElementData } from '../../utils/data';
 import TextElement from '../TextElement';
 import Gallery from '../Gallery';
 
@@ -9,16 +10,25 @@ class ContentSection extends Component {
   state = {
     direction: '',
     lastScrollPos: 0,
-    percentageValue: 26.8
+    percentageValue: 26.8,
+    pageInnerWidth: window.innerWidth
   };
 
   componentDidMount() {
     window.addEventListener('scroll', throttle(this.handleScroll), 200);
+    window.addEventListener('resize', throttle(this.handleResize), 200);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleResize);
   }
+
+  handleResize = () => {
+    this.setState({
+      pageInnerWidth: window.innerWidth
+    });
+  };
 
   handleScroll = () => {
     if (window.pageYOffset === 0) {
@@ -38,7 +48,7 @@ class ContentSection extends Component {
       this.setState(prevState => ({
         direction: 'bottom',
         lastScrollPos: window.pageYOffset,
-        percentageValue: prevState.percentageValue + 0.1
+        percentageValue: prevState.percentageValue + 0.11
       }));
     }
   };
@@ -49,15 +59,20 @@ class ContentSection extends Component {
         ? 'translateY(-26.8%)'
         : `translateY(-${this.state.percentageValue}%)`;
 
+    let updatePos =
+      this.state.pageInnerWidth <= 675
+        ? 'translateY(-19.8%)'
+        : 'translateY(-26.8%)';
+
     return (
       <Wrapper
         position={this.state.lastScrollPos}
         style={{
-          transform: window.innerWidth > 930 ? checkPos : 'translateY(-26.8%)'
+          transform: this.state.pageInnerWidth > 930 ? checkPos : updatePos
         }}
       >
         <Container>
-          <TextElement />
+          <TextElement {...textElementData} />
           <Gallery />
         </Container>
       </Wrapper>

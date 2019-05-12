@@ -21,6 +21,19 @@ const CardWrapper = styled.div`
       margin-bottom: 0;
     }
   }
+
+  @media ${below.tabletM} {
+    width: 85%;
+  }
+
+  @media ${below.mobileB} {
+    width: 31rem;
+    height: 41.4rem;
+  }
+
+  @media ${below.mobileS} {
+    width: 28rem;
+  }
 `;
 
 const Number = styled.div`
@@ -75,6 +88,10 @@ const Button = styled.button`
 
   &:hover {
     background-color: #ecda1f;
+  }
+
+  @media ${below.mobileS} {
+    width: 22.4rem;
   }
 `;
 

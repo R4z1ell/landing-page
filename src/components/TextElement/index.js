@@ -12,24 +12,17 @@ import {
   IconsWrapper
 } from './style';
 
-const TextElement = () => {
+const TextElement = ({ upText, title, description, name }) => {
   return (
     <Wrapper>
-      <UpperText>Nun ce sta' mammà là dint'!</UpperText>
-      <Title>
-        Quann steva là in Honduras, steva rint a na capanna e nziemm a me ce
-        steva.
-      </Title>
-      <Description>
-        E intant' e sord tuoj nunn arrivavan. 'Na sera gli honduregni me
-        mettetter' nu macete n'man e gridavan': 'Accirel'! Accirel'! Je pregav',
-        pregav' ca corcrun' me venev' a salva', ca tu me veniv' a salva'!
-      </Description>
+      <UpperText>{upText}</UpperText>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
       <Divider />
       <SocialSection>
         <Flex>
           <img src="images/Oval.png" alt="oval" />
-          <Name>Lorem Ipsum</Name>
+          <Name>{name}</Name>
         </Flex>
         <IconsWrapper>
           <img src="images/flame.png" alt="flame" />

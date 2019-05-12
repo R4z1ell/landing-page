@@ -19,6 +19,14 @@ const HeaderWrapper = styled.div`
   @media ${below.desktopB} {
     margin: 0 3%;
   }
+
+  @media ${below.desktopS} {
+    height: ${props => (props.value > 445 ? '0' : '6rem')};
+  }
+
+  @media ${below.tabletS} {
+    margin: 0 4%;
+  }
 `;
 
 const Logo = styled.div`
@@ -29,6 +37,15 @@ const Logo = styled.div`
   opacity: ${props => (props.value > 335 ? '0' : '1')};
   transition: all 0.3s;
   cursor: default;
+
+  @media ${below.desktopS} {
+    opacity: ${props => (props.value > 445 ? '0' : '1')};
+  }
+
+  @media ${below.tabletS} {
+    width: 95%;
+    text-align: center;
+  }
 `;
 
 const Nav = styled.nav`
@@ -39,6 +56,10 @@ const Nav = styled.nav`
   width: 100%;
   opacity: ${props => (props.value > 335 ? '0' : '1')};
   transition: all 0.3s;
+
+  @media ${below.desktopS} {
+    opacity: ${props => (props.value > 445 ? '0' : '1')};
+  }
 `;
 
 const Link = styled.a`
@@ -49,6 +70,10 @@ const Link = styled.a`
 
   &:nth-child(1) {
     margin-left: 3.5rem;
+  }
+
+  @media ${below.tabletS} {
+    display: none;
   }
 `;
 

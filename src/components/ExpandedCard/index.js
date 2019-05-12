@@ -4,7 +4,7 @@ import Animate from 'react-move/Animate';
 
 import { CardStyle, Text, WhiteSection, ImagesWrapper } from './style';
 
-const ExpandedCard = ({ value }) => {
+const ExpandedCard = ({ value, pageWidth }) => {
   const showCard = () => (
     <Animate
       show={value}
@@ -12,9 +12,28 @@ const ExpandedCard = ({ value }) => {
         width: 31,
         height: 41.4
       }}
+      update={() => {
+        if (pageWidth <= 550) {
+          return {
+            width: 80,
+            height: 52.8
+          };
+        }
+        if (pageWidth <= 1100) {
+          return {
+            width: 80,
+            height: 65.8
+          };
+        } else {
+          return {
+            width: 95.7,
+            height: 65.8
+          };
+        }
+      }}
       enter={{
-        width: [95.7],
-        height: [65.8],
+        width: [pageWidth <= 1100 ? 80 : 95.7],
+        height: [pageWidth <= 550 ? 52.8 : 65.8],
         timing: { duration: 500, ease: easePolyOut }
       }}
     >
@@ -22,9 +41,10 @@ const ExpandedCard = ({ value }) => {
         return (
           <CardStyle
             style={{
-              width: `${width}rem`,
+              width: pageWidth <= 1100 ? `${width}%` : `${width}rem`,
               height: `${height}rem`
             }}
+            value={pageWidth}
           >
             {showText()}
             {showWhiteSection()}
@@ -43,7 +63,7 @@ const ExpandedCard = ({ value }) => {
       }}
       enter={{
         opacity: [1],
-        marginTop: [12.5],
+        marginTop: [pageWidth <= 550 ? 8.5 : 12.5],
         timing: { delay: 500, duration: 500, ease: easeQuadOut }
       }}
     >
@@ -69,7 +89,7 @@ const ExpandedCard = ({ value }) => {
         height: 0
       }}
       enter={{
-        height: [32.8],
+        height: [pageWidth <= 550 ? 26.8 : 32.8],
         timing: { delay: 250, duration: 700, ease: easePolyOut }
       }}
     >

@@ -17,6 +17,17 @@ const Wrapper = styled.div`
     transform: scale(1) translateX(0);
     margin-left: 1.8rem;
   }
+
+  @media ${below.tabletM} {
+    flex-wrap: wrap;
+    margin-top: 9.1rem;
+    margin-left: 0;
+    width: 27.6rem;
+
+    img:nth-child(1) {
+      margin-bottom: 1.9rem;
+    }
+  }
 `;
 
 const Block = styled.div`
@@ -26,6 +37,10 @@ const Block = styled.div`
 
   img:nth-child(1) {
     margin-bottom: 1.9rem;
+  }
+
+  @media ${below.tabletM} {
+    margin-right: 0;
   }
 `;
 

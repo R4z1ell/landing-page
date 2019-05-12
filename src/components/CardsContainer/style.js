@@ -16,6 +16,10 @@ const Container = styled.div`
     transform: translateY(-7%);
     height: fit-content;
   }
+
+  @media ${below.tabletM} {
+    transform: translateY(-9%);
+  }
 `;
 
 const CardsWrapper = styled.div`

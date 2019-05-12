@@ -1,3 +1,13 @@
+export const textElementData = {
+  upText: `Nun ce sta' mammà là dint'!`,
+  title: `Quann steva là in Honduras, steva rint a na capanna e nziemm a me ce
+        steva.`,
+  description: `E intant' e sord tuoj nunn arrivavan. 'Na sera gli honduregni me
+        mettetter' nu macete n'man e gridavan': 'Accirel'! Accirel'! Je pregav',
+        pregav' ca corcrun' me venev' a salva', ca tu me veniv' a salva'!`,
+  name: 'Lorem Ipsum'
+};
+
 export const cardsData = [
   {
     number: '01',

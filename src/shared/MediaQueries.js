@@ -3,12 +3,10 @@ const sizes = {
   desktopL: '1100px',
   desktopM: '1000px',
   desktopS: '930px',
-  tabletL: '800px',
-  tabletM: '722px',
+  tabletL: '750px',
+  tabletM: '675px',
   tabletS: '608px',
-  mobileB: '500px',
-  mobileL: '414px',
-  mobileM: '375px',
+  mobileB: '550px',
   mobileS: '320px'
 };
 
@@ -21,7 +19,5 @@ export const below = {
   tabletM: `(max-width: ${sizes.tabletM})`,
   tabletS: `(max-width: ${sizes.tabletS})`,
   mobileB: `(max-width: ${sizes.mobileB})`,
-  mobileL: `(max-width: ${sizes.mobileL})`,
-  mobileM: `(max-width: ${sizes.mobileM})`,
   mobileS: `(max-width: ${sizes.mobileS})`
 };
