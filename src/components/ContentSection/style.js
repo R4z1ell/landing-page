@@ -26,14 +26,14 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: ${props => (props.position > 390 ? '100%' : '115.2rem')};
+  width: ${props => (props.position > 385 ? '100%' : '115.2rem')};
   background-color: #fff;
   margin: 0 auto;
-  border-radius: ${props => (props.position < 390 ? '1.2rem 1.2rem 0 0' : '0')};
+  border-radius: ${props => (props.position < 385 ? '1.2rem 1.2rem 0 0' : '0')};
   transition: all 0.3s ease-out;
 
   @media ${below.desktopB} {
-    width: ${props => (props.position > 390 ? '100%' : '109rem')};
+    width: ${props => (props.position > 385 ? '100%' : '109rem')};
   }
 
   @media ${below.desktopL} {

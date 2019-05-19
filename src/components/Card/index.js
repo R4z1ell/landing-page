@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import OverlayContext from '../../shared/OverlayContext';
+import OverlayContext from '../../shared/context/OverlayContext';
 
 import { CardWrapper, Number, Text, Title, Button } from './style';
 

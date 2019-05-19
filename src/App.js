@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import OverlayContext from './shared/OverlayContext';
+import OverlayContext from './shared/context/OverlayContext';
 
 import GlobalStyle from './shared/globalStyle';
 import Header from './components/Header';
@@ -27,7 +27,11 @@ const App = () => {
         }}
       >
         <Hero />
-        <ContentSection />
+        <ContentSection
+          initialPosition={-26.8}
+          endPosition={386}
+          scrollSpeed={-0.045}
+        />
         <OverlayContext.Provider
           value={{
             overlayStatus,

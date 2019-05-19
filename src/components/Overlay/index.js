@@ -1,36 +1,16 @@
-import React, { Component } from 'react';
-import throttle from 'lodash.throttle';
-
-import { OverlayStyle } from './style';
+import React from 'react';
+import useResizeWindow from '../../shared/hooks/useResizeWindow';
 import ExpandedCard from '../ExpandedCard';
 
-class Overlay extends Component {
-  state = {
-    pageInnerWidth: window.innerWidth
-  };
+import { OverlayStyle } from './style';
 
-  componentDidMount() {
-    window.addEventListener('resize', throttle(this.handleResize), 1000);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleResize = () => {
-    this.setState({
-      pageInnerWidth: window.innerWidth
-    });
-  };
-
-  render() {
-    const { visible, func } = this.props;
-    return (
-      <OverlayStyle value={visible} onClick={func}>
-        <ExpandedCard value={visible} pageWidth={this.state.pageInnerWidth} />
-      </OverlayStyle>
-    );
-  }
-}
+const Overlay = ({ visible, func }) => {
+  const resize = useResizeWindow();
+  return (
+    <OverlayStyle value={visible} onClick={func}>
+      <ExpandedCard value={visible} pageWidth={resize} />
+    </OverlayStyle>
+  );
+};
 
 export default Overlay;
